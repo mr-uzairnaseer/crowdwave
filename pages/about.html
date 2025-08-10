@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CrowdWave</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <div id="scrollProgress" style="position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent-color);z-index:9999;transition:width 0.2s;"></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-shipping-fast text-primary me-2"></i>
+                <span class="fw-bold">CrowdWave</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help-center.html">Help Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                <!-- <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#downloadModal">Sign Up</button> -->
+                <!-- <a class="btn btn-primary px-4" href="auth/index.html#login">Login</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 text-primary mb-4">About <span class="text-accent">CrowdWave</span></h1>
+                        <p class="lead mb-4">We're revolutionizing package delivery through innovative crowd-sourced logistics, connecting people and packages with speed, reliability, and care.</p>
+                        <div class="hero-stats row text-center">
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="text-primary">50K+</h3>
+                                    <p class="text-muted">Packages Delivered</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="text-primary">1K+</h3>
+                                    <p class="text-muted">Active Couriers</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="text-primary">98%</h3>
+                                    <p class="text-muted">Success Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <div class="hero-image-wrapper">
+                            <img src="../assets/images/1.png" alt="CrowdWave Delivery Team" class="img-fluid hero-image">
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="mission-image-wrapper">
+                        <img src="../assets/images/2.png" alt="Package Delivery Service" class="img-fluid mission-image">
+                        <div class="floating-elements">
+                            <div class="floating-box box-1"></div>
+                            <div class="floating-box box-2"></div>
+                            <div class="floating-box box-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mission-content">
+                        <h2 class="section-title mb-4">Our Mission</h2>
+                        <p class="lead text-muted">To create the world's most efficient and reliable crowd-sourced delivery network, making package delivery faster, more affordable, and environmentally sustainable while empowering individuals to earn through our platform.</p>
+                        <div class="mission-highlights mt-4">
+                            <div class="highlight-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span>Fast & Reliable Delivery</span>
+                            </div>
+                            <div class="highlight-item d-flex align-items-center mb-3">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span>Affordable Pricing</span>
+                            </div>
+                            <div class="highlight-item d-flex align-items-center">
+                                <i class="fas fa-check-circle text-primary me-3"></i>
+                                <span>Eco-Friendly Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="text-muted">The principles that guide everything we do</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-shield-alt text-primary"></i>
+                        </div>
+                        <h4 class="text-primary">Trust & Security</h4>
+                        <p class="text-muted">Every package is tracked, insured, and handled with the utmost care. Your trust is our top priority.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-bolt text-accent"></i>
+                        </div>
+                        <h4 class="text-primary">Speed & Efficiency</h4>
+                        <p class="text-muted">Leveraging crowd-sourced delivery to provide faster, more flexible delivery options than traditional methods.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-card text-center">
+                        <div class="value-icon mb-3">
+                            <i class="fas fa-leaf text-secondary"></i>
+                        </div>
+                        <h4 class="text-primary">Sustainability</h4>
+                        <p class="text-muted">Reducing carbon footprint through optimized routes and shared transportation resources.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Meet Our Team</h2>
+                    <p class="text-muted">The passionate people behind CrowdWave</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-avatar mb-3">
+                            <i class="fas fa-user-circle text-primary"></i>
+                        </div>
+                        <h5 class="text-primary">Sarah Johnson</h5>
+                        <p class="text-accent mb-2">CEO & Founder</p>
+                        <p class="text-muted small">Former logistics executive with 15+ years of experience in supply chain optimization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-avatar mb-3">
+                            <i class="fas fa-user-circle text-primary"></i>
+                        </div>
+                        <h5 class="text-primary">Mike Chen</h5>
+                        <p class="text-accent mb-2">CTO</p>
+                        <p class="text-muted small">Software architect and AI specialist focused on route optimization and platform scalability.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-avatar mb-3">
+                            <i class="fas fa-user-circle text-primary"></i>
+                        </div>
+                        <h5 class="text-primary">Emma Rodriguez</h5>
+                        <p class="text-accent mb-2">Head of Operations</p>
+                        <p class="text-muted small">Operations expert ensuring smooth delivery processes and quality customer experience.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-card text-center">
+                        <div class="team-avatar mb-3">
+                            <i class="fas fa-user-circle text-primary"></i>
+                        </div>
+                        <h5 class="text-primary">David Kim</h5>
+                        <p class="text-accent mb-2">Head of Marketing</p>
+                        <p class="text-muted small">Digital marketing strategist building brand awareness and community engagement.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Timeline -->
+    <section class="timeline-section py-5 bg-light-custom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5">
+                    <h2 class="section-title">Our Journey</h2>
+                    <p class="text-muted">Key milestones in our growth</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-primary"></div>
+                            <div class="timeline-content">
+                                <h5 class="text-primary">2023 - Founded</h5>
+                                <p class="text-muted">CrowdWave was founded with a vision to revolutionize package delivery through crowd-sourcing.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-secondary"></div>
+                            <div class="timeline-content">
+                                <h5 class="text-primary">2024 - Beta Launch</h5>
+                                <p class="text-muted">Launched our beta platform with 100 initial couriers and 500 test deliveries.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker bg-accent"></div>
+                            <div class="timeline-content">
+                                <h5 class="text-primary">2025 - Full Launch</h5>
+                                <p class="text-muted">Official platform launch with advanced AI routing, insurance coverage, and mobile apps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="cta-image-wrapper">
+                        <img src="../assets/images/3.png" alt="Global Delivery Network" class="img-fluid cta-image">
+                        <div class="pulse-animation"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="cta-content">
+                        <h2 class="text-primary mb-4">Join the CrowdWave Revolution</h2>
+                        <p class="lead text-muted mb-4">Whether you want to send packages or become a courier, we're here to connect you with opportunities across the globe.</p>
+                        <div class="cta-stats row text-center mb-4">
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h4 class="text-primary">150+</h4>
+                                    <small class="text-muted">Countries</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h4 class="text-primary">24/7</h4>
+                                    <small class="text-muted">Support</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-item">
+                                    <h4 class="text-primary">99.9%</h4>
+                                    <small class="text-muted">Uptime</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cta-buttons">
+                            <button class="btn btn-primary btn-lg me-3" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                            <a href="../index.html#contact" class="btn btn-outline-primary btn-lg">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+    <footer class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">CrowdWave</h5>
+                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut commodo lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="help-center.html" class="text-light text-decoration-none">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <p class="mb-2"><i class="fas fa-envelope me-2"></i> hello@crowdwave.com</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Riverside Building, County Hall, London SE1 7PB, Germany</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i> +02 5421234560</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <form id="aboutNewsletterForm" class="emailjs-form" data-success-message="Subscribed!">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="from_email" placeholder="Enter your email" required>
+                            <button class="btn" style="background-color: var(--accent-color); color: white;" type="submit">
+                                <span>Subscribe</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="d-flex">
+                        <a href="#" class="text-light me-3"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Get Started Modal -->
+    <div class="modal fade" id="getStartedModal" tabindex="-1" aria-labelledby="getStartedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="getStartedModalLabel">
+                        <i class="fas fa-mobile-alt me-2"></i>
+                        Download CrowdWave App
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="../assets/images/get started.png" alt="Download App" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-3">Get the CrowdWave App</h4>
+                    <p class="text-muted mb-4">Download our mobile app to start sending and receiving packages with ease. Available on all platforms.</p>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-dark btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #000;">
+                                <i class="fab fa-apple fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Download on the</div>
+                                    <div class="fw-bold">App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-success btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #34A853;">
+                                <i class="fab fa-google-play fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Get it on</div>
+                                    <div class="fw-bold">Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="text-muted small mb-3">Or access via web browser</p>
+                        <a href="../signup_login/index.html" class="btn btn-outline-primary">Web App</a>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="text-muted small">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Secure • Fast • Reliable
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download App Modal -->
+    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="downloadModalLabel">
+                        <i class="fas fa-rocket me-2"></i>
+                        We Are Coming Soon!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="../assets/images/illustration.png" alt="Excitement" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-2">Join Our Waiting List</h4>
+                    <p class="text-muted mb-4">We're launching soon! Be the first to know and get exclusive early access. Enter your email below to join the excitement.</p>
+                    <form id="waitlistForm">
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="email" class="form-control" name="from_email" placeholder="Enter your email" required>
+                            <button class="btn btn-primary" type="submit" id="waitlistBtn">
+                                <span id="waitlistBtnText">Join Now</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="alert alert-success d-none mt-3" id="waitlist-success">Thank you for joining! We'll keep you posted.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <!-- EmailJS Handler -->
+    <script src="../assets/js/emailjs-handler.js"></script>
+</body>
+<script>
+    // Initialize EmailJS
+    emailjs.init("B6CJY-_pMaXNvceJY");
+
+    // Helper function to handle form submission
+    function handleFormSubmission(formId, btnId, btnTextId, successMessage, templateId = 'template_yfiwjyo') {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById(btnId);
+            const btnText = document.getElementById(btnTextId);
+            const originalText = btnText.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_j3bwmzh', templateId, this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    btnText.innerHTML = '<i class="fas fa-check me-2"></i>' + successMessage;
+                    submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    btnText.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Failed!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+                })
+                .finally(function() {
+                    // Reset button state after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        btnText.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                });
+        });
+    }
+
+    // Initialize all forms when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Waitlist form
+        handleFormSubmission('waitlistForm', 'waitlistBtn', 'waitlistBtnText', 'Joined!');
+    });
+
+// Scroll progress bar
+window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var width = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = width + '%';
+});
+</script>
+</html>

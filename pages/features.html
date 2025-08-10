@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - CrowdWave</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        /* Features Page Specific Styles */
+        .features-hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: var(--text-dark);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="gray" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="gray" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="gray" opacity="0.08"/><circle cx="90" cy="40" r="0.5" fill="gray" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 27, 183, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-top: 4px solid var(--accent-color);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 27, 183, 0.15);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .feature-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .integration-section {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .integration-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .integration-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: var(--text-dark);
+            padding: 80px 0;
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--muted-text);
+            margin-top: 10px;
+        }
+        
+        .pricing-section {
+            padding: 80px 0;
+            background: linear-gradient(45deg, #f8f9fa 0%, white 100%);
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid var(--accent-color);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--accent-color);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .price-period {
+            color: #666;
+            font-size: 1rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .demo-video {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 27, 183, 0.2);
+            background: var(--light-gray);
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .demo-video:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(0, 27, 183, 0.25);
+        }
+        
+        .demo-video video {
+            border-radius: 15px;
+            background-color: #000;
+        }
+        
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background: #e6733a;
+        }
+    </style>
+</head>
+<body>
+    <div id="scrollProgress" style="position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent-color);z-index:9999;transition:width 0.2s;"></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <i class="fas fa-shipping-fast text-primary me-2"></i>
+                <span class="fw-bold">CrowdWave</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help-center.html">Help Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                <!-- <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#downloadModal">Sign Up</button> -->
+                <!-- <a class="btn btn-primary px-4" href="auth/index.html#login">Login</a> -->
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="features-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Powerful Features for Modern Delivery</h1>
+                    <p class="lead mb-5">Discover how CrowdWave's advanced features can transform your package delivery experience with cutting-edge technology and seamless integration.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg px-4">Explore Features</button>
+                        <button class="btn btn-outline-primary btn-lg px-4">Watch Demo</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Business Presentation Video -->
+                    <div class="demo-video position-relative">
+                        <video 
+                            class="w-100 h-100" 
+                            style="border-radius: 15px; object-fit: cover;"
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                            preload="auto"
+                            poster=""
+                            title="CrowdWave Business Features Presentation">
+                            <source src="../assets/videos/vecteezy_a-presentation-by-a-business-woman-focused-on-an-infographic_44257044.mp4" type="video/mp4">
+                            <!-- Fallback for browsers that don't support video -->
+                            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-light">
+                                <div class="text-center">
+                                    <i class="fas fa-video fa-3x text-primary mb-3"></i>
+                                    <h6 class="text-primary mb-2">Video Not Supported</h6>
+                                    <p class="text-muted small">Your browser doesn't support video playback</p>
+                                </div>
+                            </div>
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <div class="stat-label">Delivery Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">50k+</span>
+                        <div class="stat-label">Active Users</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">Customer Support</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <div class="stat-label">Cities Covered</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">  
+                <div class="col-12 text-center mb-5">
+                    <h2 class="fw-bold" style="color: var(--primary-color);">Core Features</h2>
+                    <p class="text-muted">Everything you need for efficient package delivery management</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h4 class="feature-title">Smart Routing</h4>
+                        <p class="feature-description">AI-powered route optimization ensures fastest delivery times while reducing costs. Our algorithm considers traffic, weather, and delivery priorities.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Real-time Tracking</h4>
+                        <p class="feature-description">Track packages in real-time with GPS accuracy. Get live updates, estimated delivery times, and instant notifications for every milestone.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="feature-title">Team Management</h4>
+                        <p class="feature-description">Efficiently manage your delivery team with built-in tools for scheduling, performance tracking, and communication.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="feature-title">Mobile App</h4>
+                        <p class="feature-description">Native mobile applications for both iOS and Android. Manage deliveries, communicate with customers, and track performance on the go.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="feature-title">Analytics Dashboard</h4>
+                        <p class="feature-description">Comprehensive analytics and reporting tools. Track KPIs, monitor performance trends, and make data-driven decisions.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h4 class="feature-title">Payment Processing</h4>
+                        <p class="feature-description">Secure payment gateway with support for multiple payment methods. Handle COD, online payments, and automated billing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Integration Section -->
+    <!-- 
+    <section class="integration-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="fw-bold" style="color: var(--primary-color);">Seamless Integrations</h2>
+                    <p class="text-muted">Connect with your favorite tools and platforms</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <i class="fab fa-shopify"></i>
+                        </div>
+                        <h5 class="mb-3" style="color: var(--primary-color);">E-commerce Platforms</h5>
+                        <p class="text-muted small">Shopify, WooCommerce, Magento, and more</p>
+                        <a href="#" class="btn btn-sm" style="background-color: var(--secondary-color); color: white;">View Integration</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h5 class="mb-3" style="color: var(--primary-color);">Inventory Systems</h5>
+                        <p class="text-muted small">SAP, Oracle, QuickBooks integration</p>
+                        <a href="#" class="btn btn-sm" style="background-color: var(--secondary-color); color: white;">View Integration</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h5 class="mb-3" style="color: var(--primary-color);">Communication</h5>
+                        <p class="text-muted small">Slack, Teams, WhatsApp Business</p>
+                        <a href="#" class="btn btn-sm" style="background-color: var(--secondary-color); color: white;">View Integration</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="integration-card">
+                        <div class="integration-icon">
+                            <i class="fas fa-file-invoice"></i>
+                        </div>
+                        <h5 class="mb-3" style="color: var(--primary-color);">Accounting</h5>
+                        <p class="text-muted small">Xero, FreshBooks, Wave integration</p>
+                        <a href="#" class="btn btn-sm" style="background-color: var(--secondary-color); color: white;">View Integration</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+-->
+  <!-- Pricing Section -->
+     <!--
+    <section class="pricing-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="fw-bold" style="color: var(--primary-color);">Simple, Transparent Pricing</h2>
+                    <p class="text-muted">Choose the plan that fits your business needs</p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h4 style="color: var(--primary-color);">Starter</h4>
+                        <div class="price">$29<span class="price-period">/month</span></div>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Up to 100 deliveries/month</li>
+                            <li><i class="fas fa-check"></i> Basic tracking</li>
+                            <li><i class="fas fa-check"></i> Email support</li>
+                            <li><i class="fas fa-check"></i> Mobile app access</li>
+                            <li><i class="fas fa-times text-muted"></i> Advanced analytics</li>
+                        </ul>
+                        <button class="btn btn-outline-primary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card featured">
+                        <h4 style="color: var(--primary-color);">Professional</h4>
+                        <div class="price">$79<span class="price-period">/month</span></div>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Up to 500 deliveries/month</li>
+                            <li><i class="fas fa-check"></i> Real-time tracking</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> API access</li>
+                        </ul>
+                        <button class="btn btn-primary btn-lg w-100" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="pricing-card">
+                        <h4 style="color: var(--primary-color);">Enterprise</h4>
+                        <div class="price">$199<span class="price-period">/month</span></div>
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check"></i> Unlimited deliveries</li>
+                            <li><i class="fas fa-check"></i> Custom integrations</li>
+                            <li><i class="fas fa-check"></i> 24/7 phone support</li>
+                            <li><i class="fas fa-check"></i> White-label solution</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        </ul>
+                        <button class="btn btn-outline-primary btn-lg w-100">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> 
+-->
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="fw-bold mb-4">Ready to Transform Your Delivery Operations?</h2>
+                    <p class="lead mb-5">Join thousands of businesses that trust CrowdWave for their delivery needs. Start your free trial today and experience the difference.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button class="btn btn-light btn-lg px-5">Start Free Trial</button>
+                        <button class="btn btn-outline-light btn-lg px-5">Schedule Demo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">CrowdWave</h5>
+                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut commodo lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="help-center.html" class="text-light text-decoration-none">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <p class="mb-2"><i class="fas fa-envelope me-2"></i> hello@crowdwave.com</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Riverside Building, County Hall, London SE1 7PB, Germany</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i> +02 5421234560</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <form method="POST" action="https://formsubmit.co/iamusmanbro@gmail.com">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="Newsletter Subscription">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
+                            <button class="btn" style="background-color: var(--accent-color); color: white;" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="d-flex">
+                        <a href="#" class="text-light me-3"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Get Started Modal -->
+    <div class="modal fade" id="getStartedModal" tabindex="-1" aria-labelledby="getStartedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="getStartedModalLabel">
+                        <i class="fas fa-mobile-alt me-2"></i>
+                        Download CrowdWave App
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="../assets/images/get started.png" alt="Download App" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-3">Get the CrowdWave App</h4>
+                    <p class="text-muted mb-4">Download our mobile app to start sending and receiving packages with ease. Available on all platforms.</p>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-dark btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #000;">
+                                <i class="fab fa-apple fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Download on the</div>
+                                    <div class="fw-bold">App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-success btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #34A853;">
+                                <i class="fab fa-google-play fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Get it on</div>
+                                    <div class="fw-bold">Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="text-muted small mb-3">Or access via web browser</p>
+                        <a href="../signup_login/index.html" class="btn btn-outline-primary">Web App</a>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="text-muted small">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Secure • Fast • Reliable
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download App Modal -->
+    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="downloadModalLabel">
+                        <i class="fas fa-rocket me-2"></i>
+                        We Are Coming Soon!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="../assets/images/illustration.png" alt="Excitement" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-2">Join Our Waiting List</h4>
+                    <p class="text-muted mb-4">We're launching soon! Be the first to know and get exclusive early access. Enter your email below to join the excitement.</p>
+                    <form id="waitlistForm">
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="email" class="form-control" name="from_email" placeholder="Enter your email" required>
+                            <button class="btn btn-primary" type="submit" id="waitlistBtn">
+                                <span id="waitlistBtnText">Join Now</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="alert alert-success d-none mt-3" id="waitlist-success">Thank you for joining! We'll keep you posted.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        // Initialize EmailJS
+        emailjs.init("B6CJY-_pMaXNvceJY");
+
+        // Helper function to handle form submission
+        function handleFormSubmission(formId, btnId, btnTextId, successMessage, templateId = 'template_yfiwjyo') {
+            const form = document.getElementById(formId);
+            if (!form) return;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById(btnId);
+                const btnText = document.getElementById(btnTextId);
+                const originalText = btnText.innerHTML;
+                
+                // Show loading state
+                submitBtn.disabled = true;
+                btnText.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                
+                // Send email using EmailJS
+                emailjs.sendForm('service_j3bwmzh', templateId, this)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        
+                        // Show success message
+                        btnText.innerHTML = '<i class="fas fa-check me-2"></i>' + successMessage;
+                        submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                        
+                        // Reset form
+                        form.reset();
+                        
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        
+                        // Show error message
+                        btnText.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Failed!';
+                        submitBtn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+                    })
+                    .finally(function() {
+                        // Reset button state after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            btnText.innerHTML = originalText;
+                            submitBtn.style.background = '';
+                        }, 3000);
+                    });
+            });
+        }
+
+        // Video functionality is now handled by the native HTML5 video element
+        // No additional JavaScript needed for basic video playback
+        
+        // Animate numbers on scroll
+        function animateNumbers() {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const text = target.textContent;
+                        const hasPercent = text.includes('%');
+                        const hasPlus = text.includes('+');
+                        const number = parseFloat(text.replace(/[^0-9.]/g, ''));
+                        
+                        let current = 0;
+                        const increment = number / 100;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= number) {
+                                current = number;
+                                clearInterval(timer);
+                            }
+                            
+                            let displayValue = Math.floor(current);
+                            if (text.includes('24/7')) {
+                                target.textContent = '24/7';
+                            } else if (hasPercent) {
+                                target.textContent = displayValue + '%';
+                            } else if (hasPlus) {
+                                target.textContent = displayValue + 'k+';
+                            } else if (text.includes('+')) {
+                                target.textContent = displayValue + '+';
+                            } else {
+                                target.textContent = displayValue;
+                            }
+                        }, 20);
+                        
+                        observer.unobserve(target);
+                    }
+                });
+            });
+            
+            stats.forEach(stat => observer.observe(stat));
+        }
+
+        // Initialize animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            animateNumbers();
+            // Initialize waitlist form
+            handleFormSubmission('waitlistForm', 'waitlistBtn', 'waitlistBtnText', 'Joined!');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
+    <!-- EmailJS Handler -->
+    <script src="../assets/js/emailjs-handler.js"></script>
+</body>
+<script>
+// Scroll progress bar
+window.addEventListener('scroll', function() {
+    var docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var width = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    document.getElementById('scrollProgress').style.width = width + '%';
+});
+</script>
+</html>

@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdWave - Package Courier System</title>
+    <meta name="description" content="CrowdWave delivers fast, reliable, and secure courier services with real-time tracking, 24/7 support, and a seamless experience.">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="CrowdWave - Package Courier System">
+    <meta property="og:description" content="Fast, reliable, and secure courier services. Real‑time tracking, trusted by top companies.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/illu.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CrowdWave - Package Courier System">
+    <meta name="twitter:description" content="Fast, reliable, and secure courier services with real‑time tracking and 24/7 support.">
+    <meta name="twitter:image" content="assets/images/illu.png">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#001BB7">
+    <!-- <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0d12"> -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-shipping-fast text-primary me-2"></i>
+                <span class="fw-bold">CrowdWave</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-4">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/help-center.html">Help Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+                <!-- <button class="btn btn-primary px-4" data-bs-toggle="modal" data-bs-target="#downloadModal">Sign Up</button> -->
+                <!-- <a class="btn btn-primary px-4" href="auth/index.html#login">Login</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">
+                            Package Courier <br>
+                            <span class="text-primary">System</span>
+                        </h1>
+                        <p class="lead mb-4 text-muted">
+                            Fast, reliable, and secure package delivery services. 
+                            Track your packages in real-time and enjoy seamless delivery experience.
+                        </p>
+                        <div class="hero-buttons mb-4">
+                            <button class="btn btn-primary btn-lg me-3 px-4" data-bs-toggle="modal" data-bs-target="#downloadModal">Join Waiting List</button>
+                            <button class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="fas fa-play me-2"></i>Watch Video
+                            </button>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="d-flex align-items-center">
+                                <div class="customer-avatars me-3">
+                                    <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Customer 1" class="avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer 2" class="avatar">
+                                    <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Customer 3" class="avatar">
+                                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Customer 4" class="avatar">
+                                    <span class="avatar-count">+95</span>
+                                </div>
+                                <div>
+                                    <div class="fw-bold">Happy Customers</div>
+                                    <div class="text-muted small">Join thousands of satisfied users</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image text-center">
+                        <div class="delivery-illustration">
+                            <img src="assets/images/illu.png" alt="CrowdWave Delivery Illustration" class="img-fluid floating-image" style="max-width: 80%; height: auto;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Companies Section -->
+    <section class="trusted-section py-5 bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h3 class="text-white fw-bold mb-3">
+                        Trusted By Top <br>
+                        Companies
+                    </h3>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row text-white">
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="trust-item">
+                                <i class="fas fa-phone text-white mb-2"></i>
+                                <div class="fw-bold">24/7 Support</div>
+                                <small>Always available</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="trust-item">
+                                <i class="fas fa-shield-alt text-white mb-2"></i>
+                                <div class="fw-bold">Secure Delivery</div>
+                                <small>100% protected</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="trust-item">
+                                <i class="fas fa-clock text-white mb-2"></i>
+                                <div class="fw-bold">On Time</div>
+                                <small>Always punctual</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 mb-3">
+                            <div class="trust-item">
+                                <i class="fas fa-truck text-white mb-2"></i>
+                                <div class="fw-bold">Fast Delivery</div>
+                                <small>Express service</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CrowdWave Assists Section -->
+    <section class="assists-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">
+                        The <span class="text-primary">CrowdWave</span> Assists You <br>
+                        Promptly Each Time
+                    </h2>
+                    <!-- Video Embed Section -->
+                    <!-- 
+                        TO UPDATE VIDEO:
+                        Current video: vecteezy_a-delivery-man-wearing-a-red-shirt-grabs-a-parcel-box-and_25900332.mp4
+                        
+                        To change video:
+                        1. Replace the video file in assets/videos/ folder
+                        2. Update the src attribute below with new filename
+                        
+                        Or use JavaScript in browser console:
+                        updateVideoUrl("assets/videos/your-new-video.mp4", "Your Video Title")
+                    -->
+                    <div class="video-container position-relative rounded-3 overflow-hidden shadow" style="height: 300px;">
+                        <!-- Local Video Embed -->
+                        <video 
+                            class="w-100 h-100" 
+                            style="border-radius: 12px; object-fit: cover;"
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline
+                            preload="auto"
+                            poster=""
+                            title="CrowdWave Package Delivery System Demo">
+                            <source src="assets/videos/vecteezy_a-delivery-man-wearing-a-red-shirt-grabs-a-parcel-box-and_25900332.mp4" type="video/mp4">
+                            <source src="vecteezy_a-delivery-man-wearing-a-red-shirt-grabs-a-parcel-box-and_25900332.mp4" type="video/mp4">
+                            <!-- Fallback text for browsers that don't support video -->
+                            <div class="video-fallback position-absolute top-0 start-0 w-100 h-100 bg-primary bg-opacity-10 d-flex align-items-center justify-content-center" style="backdrop-filter: blur(5px);">
+                                <div class="text-center">
+                                    <i class="fas fa-video fa-3x text-primary mb-3"></i>
+                                    <h5 class="text-primary mb-2">Video Not Supported</h5>
+                                    <p class="text-muted small">Your browser doesn't support video playback</p>
+                                </div>
+                            </div>
+                        </video>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <p class="text-muted mb-4">
+                        Our advanced system ensures that every package is handled with care and delivered on time. 
+                        With real-time tracking and 24/7 support, we make sure your delivery experience is smooth and reliable.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What CrowdWave Ensures Section -->
+    <section class="ensures-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">
+                    What <span class="text-primary">CrowdWave</span> <br>
+                    Ensures?
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="feature-icon bg-primary text-white rounded-3 mb-3 mx-auto">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Secure Service</h5>
+                        <p class="text-muted small">
+                            Advanced security measures to protect your packages throughout the delivery process.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="feature-icon bg-primary text-white rounded-3 mb-3 mx-auto">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Fast Delivery</h5>
+                        <p class="text-muted small">
+                            Quick and efficient delivery services to get your packages where they need to go.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="feature-icon bg-primary text-white rounded-3 mb-3 mx-auto">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Data Security</h5>
+                        <p class="text-muted small">
+                            Your personal information and package details are kept secure and confidential.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="feature-card text-center bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="feature-icon bg-primary text-white rounded-3 mb-3 mx-auto">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Seamless Experience</h5>
+                        <p class="text-muted small">
+                            User-friendly interface and smooth delivery process for the best customer experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">
+                    The Notable <span class="text-primary">CrowdWave</span> Services
+                </h2>
+                <p class="text-muted">Comprehensive delivery solutions for all your shipping needs</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="service-card bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="service-icon bg-primary text-white rounded-3 mb-3">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">24/7 Deliveries</h5>
+                        <p class="text-muted small mb-3">
+                            Round-the-clock delivery services to meet your urgent shipping needs.
+                        </p>
+                        <a href="#" class="text-primary text-decoration-none small fw-bold">Learn More →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="service-card bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="service-icon bg-primary text-white rounded-3 mb-3">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Cold Chain Logistics</h5>
+                        <p class="text-muted small mb-3">
+                            Temperature-controlled delivery for sensitive items and perishables.
+                        </p>
+                        <a href="#" class="text-primary text-decoration-none small fw-bold">Learn More →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="service-card bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="service-icon bg-primary text-white rounded-3 mb-3">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Door-to-door Service</h5>
+                        <p class="text-muted small mb-3">
+                            Convenient pickup and delivery right from your doorstep.
+                        </p>
+                        <a href="#" class="text-primary text-decoration-none small fw-bold">Learn More →</a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="service-card bg-white p-4 rounded-3 shadow-sm h-100">
+                        <div class="service-icon bg-primary text-white rounded-3 mb-3">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Multi-State Services</h5>
+                        <p class="text-muted small mb-3">
+                            Nationwide delivery network covering multiple states and regions.
+                        </p>
+                        <a href="#" class="text-primary text-decoration-none small fw-bold">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section class="order-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">How To Orders In CrowdWave?</h2>
+                <p class="text-muted">Simple steps to get your package delivered</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number bg-primary text-white rounded-circle mb-3 mx-auto">1</div>
+                        <h5 class="fw-bold mb-3">Choose Your Service</h5>
+                        <p class="text-muted small">
+                            Select the delivery service that best fits your package requirements.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number bg-primary text-white rounded-circle mb-3 mx-auto">2</div>
+                        <h5 class="fw-bold mb-3">Enter Package Details</h5>
+                        <p class="text-muted small">
+                            Provide package information and delivery address details.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number bg-primary text-white rounded-circle mb-3 mx-auto">3</div>
+                        <h5 class="fw-bold mb-3">Schedule Pickup</h5>
+                        <p class="text-muted small">
+                            Choose a convenient time for package pickup from your location.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4">
+                    <div class="step-card text-center">
+                        <div class="step-number bg-primary text-white rounded-circle mb-3 mx-auto">4</div>
+                        <h5 class="fw-bold mb-3">Track & Receive</h5>
+                        <p class="text-muted small">
+                            Monitor your package in real-time until successful delivery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Stats For CrowdWave</h2>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-item">
+                        <h2 class="text-primary fw-bold display-4">95%+</h2>
+                        <p class="text-muted">Customer Satisfaction</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-item">
+                        <h2 class="text-primary fw-bold display-4">100+</h2>
+                        <p class="text-muted">Partner Drivers</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-item">
+                        <h2 class="text-primary fw-bold display-4">5-Star</h2>
+                        <p class="text-muted">Average Rating</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4">
+                    <div class="stat-item">
+                        <h2 class="text-primary fw-bold display-4">2K+</h2>
+                        <p class="text-muted">Deliveries Made</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section py-5 bg-primary">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="text-white fw-bold">See What Others People Are Saying</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card bg-white p-4 rounded-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/3.jpg" alt="Sarah Johnson" class="testimonial-avatar me-3">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Sarah Johnson</h6>
+                                <small class="text-muted">Business Owner</small>
+                            </div>
+                        </div>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted small">
+                            "CrowdWave has been incredible for my business. Fast, reliable, and excellent customer service!"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card bg-white p-4 rounded-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Mike Chen" class="testimonial-avatar me-3">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Mike Chen</h6>
+                                <small class="text-muted">Online Seller</small>
+                            </div>
+                        </div>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted small">
+                            "The tracking system is amazing. My customers always know exactly where their packages are."
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="testimonial-card bg-white p-4 rounded-3">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Jessica Williams" class="testimonial-avatar me-3">
+                            <div>
+                                <h6 class="mb-0 fw-bold">Jessica Williams</h6>
+                                <small class="text-muted">Regular Customer</small>
+                            </div>
+                        </div>
+                        <div class="text-warning mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-muted small">
+                            "Never had a single issue with my deliveries. Professional and on-time every single time!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2 class="fw-bold mb-4">
+                        Have Any <br>
+                        Questions?
+                    </h2>
+                    <p class="text-muted mb-4">
+                        Find answers to common questions about our delivery services and how CrowdWave works.
+                    </p>
+                </div>
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How can I get my CrowdWave account?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Simply click the "Sign Up" button and follow the registration process. You'll be ready to start shipping in minutes.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    How fast can I ship a package?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We offer same-day delivery in most urban areas and next-day delivery nationwide.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    How do I track a package?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Use your tracking number on our website or mobile app to get real-time updates on your package location.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Do you accept OTC?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, we accept cash on delivery (COD) for your convenience.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    What payment methods do you accept?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We accept all major credit cards, PayPal, bank transfers, and cash on delivery.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Can I track my package?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! Real-time tracking is included with every shipment at no extra cost.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">
+                    Fill The Form To <span class="text-primary">Contact Us</span>
+                </h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="contact-info bg-primary text-white p-4 rounded-3 h-100">
+                        <h4 class="fw-bold mb-4">Contact Information</h4>
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-phone me-3"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </div>
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-envelope me-3"></i>
+                            <span>support@crowdwave.com</span>
+                        </div>
+                        <div class="contact-item mb-3">
+                            <i class="fas fa-map-marker-alt me-3"></i>
+                            <span>123 Delivery Street, City, State 12345</span>
+                        </div>
+                        <div class="contact-social mt-4">
+                            <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div id="contact-form-messages" style="display: none;"></div>
+                    <form class="contact-form bg-white p-4 rounded-3 shadow-sm" id="indexContactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="fullName" class="form-label">Full name</label>
+                                <input type="text" class="form-control" id="fullName" name="from_name" placeholder="Your full name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="from_email" placeholder="Your email address" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of your message" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your message" required></textarea>
+                        </div>
+                        <button type="submit" id="indexContactBtn" class="btn btn-primary px-5">
+                            <span id="indexContactBtnText">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <h5 class="fw-bold mb-3">CrowdWave</h5>
+                    <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut commodo lorem ipsum dolor sit amet.</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-light text-decoration-none">Home</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="pages/contact.html" class="text-light text-decoration-none">Contact Us</a></li>
+                        <li class="mb-2"><a href="help-center.html" class="text-light text-decoration-none">Help Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Contact Us</h6>
+                    <p class="mb-2"><i class="fas fa-envelope me-2"></i> hello@crowdwave.com</p>
+                    <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i> Riverside Building, County Hall, London SE1 7PB, Germany</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i> +02 5421234560</p>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h6 class="fw-bold mb-3">Newsletter</h6>
+                    <form id="indexNewsletterForm">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" name="from_email" placeholder="Enter your email" required>
+                            <button class="btn" style="background-color: var(--accent-color); color: white;" type="submit" id="indexNewsletterBtn">
+                                <span id="indexNewsletterBtnText">Subscribe</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="d-flex">
+                        <a href="#" class="text-light me-3"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Get Started Modal -->
+    <div class="modal fade" id="getStartedModal" tabindex="-1" aria-labelledby="getStartedModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="getStartedModalLabel">
+                        <i class="fas fa-mobile-alt me-2"></i>
+                        Download CrowdWave App
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="assets/images/get started.png" alt="Download App" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-3">Get the CrowdWave App</h4>
+                    <p class="text-muted mb-4">Download our mobile app to start sending and receiving packages with ease. Available on all platforms.</p>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-dark btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #000;">
+                                <i class="fab fa-apple fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Download on the</div>
+                                    <div class="fw-bold">App Store</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-success btn-lg w-100 d-flex align-items-center justify-content-center p-3" style="background: #34A853;">
+                                <i class="fab fa-google-play fa-2x me-3"></i>
+                                <div class="text-start">
+                                    <div class="small">Get it on</div>
+                                    <div class="fw-bold">Google Play</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <p class="text-muted small mb-3">Or access via web browser</p>
+                        <a href="signup_login/index.html" class="btn btn-outline-primary">Web App</a>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <p class="text-muted small">
+                            <i class="fas fa-shield-alt me-1"></i>
+                            Secure • Fast • Reliable
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download App Modal -->
+    <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header border-0 bg-gradient text-white" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
+                    <h5 class="modal-title fw-bold" id="downloadModalLabel">
+                        <i class="fas fa-rocket me-2"></i>
+                        We Are Coming Soon!
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <img src="assets/images/illustration.png" alt="Excitement" class="img-fluid mb-3" style="max-width:180px;">
+                    <h4 class="fw-bold text-primary mb-2">Join Our Waiting List</h4>
+                    <p class="text-muted mb-4">We're launching soon! Be the first to know and get exclusive early access. Enter your email below to join the excitement.</p>
+                    <form id="waitlistForm">
+                        <div class="input-group mb-3 w-75 mx-auto">
+                            <input type="email" class="form-control" name="from_email" placeholder="Enter your email" required>
+                            <button class="btn btn-primary" type="submit" id="waitlistBtn">
+                                <span id="waitlistBtnText">Join Now</span>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="alert alert-success d-none mt-3" id="waitlist-success">Thank you for joining! We'll keep you posted.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="assets/js/script.js"></script>
+    <!-- EmailJS Handler -->
+    <script src="assets/js/emailjs-handler.js"></script>
+</body>
+    <script>
+    // Initialize EmailJS
+    emailjs.init("B6CJY-_pMaXNvceJY");
+
+    // Helper function to handle form submission
+    function handleFormSubmission(formId, btnId, btnTextId, successMessage, templateId = 'template_yfiwjyo') {
+        const form = document.getElementById(formId);
+        if (!form) return;
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById(btnId);
+            const btnText = document.getElementById(btnTextId);
+            const originalText = btnText.innerHTML;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            btnText.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+            
+            // Send email using EmailJS
+            emailjs.sendForm('service_j3bwmzh', templateId, this)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Show success message
+                    btnText.innerHTML = '<i class="fas fa-check me-2"></i>' + successMessage;
+                    submitBtn.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                    
+                    // Reset form
+                    form.reset();
+                    
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    
+                    // Show error message
+                    btnText.innerHTML = '<i class="fas fa-exclamation-triangle me-2"></i>Failed!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #dc3545, #c82333)';
+                })
+                .finally(function() {
+                    // Reset button state after 3 seconds
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        btnText.innerHTML = originalText;
+                        submitBtn.style.background = '';
+                    }, 3000);
+                });
+        });
+    }
+
+    // Initialize all forms when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Contact form
+        handleFormSubmission('indexContactForm', 'indexContactBtn', 'indexContactBtnText', 'Message Sent!');
+        
+        // Newsletter form
+        handleFormSubmission('indexNewsletterForm', 'indexNewsletterBtn', 'indexNewsletterBtnText', 'Subscribed!');
+        
+        // Waitlist form
+        handleFormSubmission('waitlistForm', 'waitlistBtn', 'waitlistBtnText', 'Joined!');
+    });
+    </script>
+</body>
+</html>
